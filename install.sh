@@ -12,9 +12,8 @@ tar -zxf protobuf-2.5.0.tar.gz
 tar -zxf gflags-2.0-no-svn-files.tar.gz
 tar -zxf zeromq-4.0.4.tar.gz
 tar -zxf zlib-1.2.8.tar.gz
-tar -jxf snappy-1.1.2.tar
-tar -zxf gtest-1.7.0.zip
-# unzip -q gtest-1.7.0.zip
+tar -zxf snappy-1.1.2.tar.gz
+tar -zxf gtest-1.7.0.tar.gz
 
 cd protobuf* && ./configure -prefix=$prefix && make && make install && cd ..
 cd gflags* && ./configure -prefix=$prefix && make && make install && cd ..
