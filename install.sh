@@ -14,6 +14,8 @@ tar -zxf zeromq-4.0.4.tar.gz
 tar -zxf zlib-1.2.8.tar.gz
 tar -zxf snappy-1.1.2.tar.gz
 tar -zxf gtest-1.7.0.tar.gz
+tar -zxf mpich-3.1.1.tar.gz 
+tar -zxf cityhash-1.1.1.tar.gz
 
 cd protobuf* && ./configure -prefix=$prefix && make && make install && cd ..
 cd gflags* && ./configure -prefix=$prefix && make && make install && cd ..
@@ -21,6 +23,8 @@ cd glog* && ./configure -prefix=$prefix && make && make install && cd ..
 cd zeromq* && ./configure -prefix=$prefix && make && make install && cd ..
 cd zlib* && ./configure -prefix=$prefix && make && make install && cd ..
 cd snappy* && ./configure -prefix=$prefix && make && make install && cd ..
+cd mpich* && ./configure -prefix=$prefix && make && make install && cd ..
+cd cityhash* && ./configure -prefix=$prefix && make && make install && cd ..
 
 mv eigen*/Eigen $prefix/include
 
