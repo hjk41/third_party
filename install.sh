@@ -26,8 +26,8 @@ cd zeromq* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 cd zlib* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 cd snappy* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 # using the following one if you have problem on fortran compiler
-# cd mpich* && ./configure -prefix=$prefix --disable-fortran && make && make -j$n install && cd ..
-cd mpich* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
+cd mpich* && ./configure -prefix=$prefix --disable-fortran && make && make -j$n install && cd ..
+# cd mpich* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 cd cityhash* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 cd sparsehash* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
 
