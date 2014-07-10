@@ -21,15 +21,15 @@ tar -zxf sparsehash-2.0.2.tar.gz
 n=8
 cd protobuf* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd gflags* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd glog* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
-cd zeromq* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
-cd zlib* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
-cd snappy* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
+cd glog* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd snappy* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 # using the following one if you have problem on fortran compiler
-cd mpich* && ./configure -prefix=$prefix --disable-fortran && make && make -j$n install && cd ..
+cd mpich* && ./configure -prefix=$prefix --disable-fortran && make -j$n && make install && cd ..
 # cd mpich* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
-cd cityhash* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
-cd sparsehash* && ./configure -prefix=$prefix && make && make -j$n install && cd ..
+cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd sparsehash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 
 cp -r eigen*/Eigen $prefix/include
 
@@ -39,7 +39,7 @@ g++ -isystem ./include -I. -pthread -c ./src/gtest_main.cc
 ar -rv libgtest.a gtest-all.o
 ar -rv libgtest_main.a gtest_main.o
 cp libgtest* ../../lib
-cp ./include/gtest ../../include
+cp -r ./include/gtest ../../include
 cd ..
 
 # clean
