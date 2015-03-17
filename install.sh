@@ -17,17 +17,6 @@ tar -zxf zlib-1.2.8.tar.gz
 tar -zxf snappy-1.1.2.tar.gz
 tar -zxf gtest-1.7.0.tar.gz
 
-n=8
-cd protobuf* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd gflags* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd glog* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd snappy* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-# cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-
-cp -r eigen*/Eigen $prefix/include
-
 # googtest
 cd gtest*
 g++ -isystem ./include -I. -pthread -c ./src/gtest-all.cc
@@ -37,6 +26,18 @@ ar -rv libgtest_main.a gtest_main.o
 cp libgtest* $prefix/lib
 cp -r ./include/gtest $prefix/include
 cd ..
+
+n=8
+cd protobuf* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd gflags* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd glog* && ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && make install && cd ..
+cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd snappy* && GTEST_CPPFLAGS=-I$PREFIX/include GTEST_LDFLAGS=-L$PREFIX/lib ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && make install && cd ..
+# cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+
+cp -r eigen*/Eigen $prefix/include
+
 
 # clean
 # rm -rf eigen-eigen-6b38706d90a9 glog-0.3.3 protobuf-2.5.0 gflags-2.0 gtest-1.7.0 zeromq-4.0.4
