@@ -9,7 +9,7 @@ fi
 
 cd build
 tar -zxf eigen-eigen-6b38706d90a9.tar.gz
-tar -zxf glog-r142.tar.gz
+tar -zxf glog-0.3.3.tar.gz
 tar -zxf protobuf-2.5.0.tar.gz
 tar -zxf gflags-2.0-no-svn-files.tar.gz
 tar -zxf zeromq-4.1.0-rc1.tar.gz
@@ -33,7 +33,7 @@ cd gflags* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd glog* && ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && make install && cd ..
 cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd snappy* && GTEST_CPPFLAGS=-I$PREFIX/include GTEST_LDFLAGS=-L$PREFIX/lib ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && make install && cd ..
+cd snappy* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 # cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 
 cp -r eigen*/Eigen $prefix/include
