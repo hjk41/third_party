@@ -16,6 +16,7 @@ tar -zxf zeromq-4.1.0-rc1.tar.gz
 tar -zxf zlib-1.2.8.tar.gz
 tar -zxf snappy-1.1.2.tar.gz
 tar -zxf gtest-1.7.0.tar.gz
+tar -zxf libxml2-2.9.2.tar.gz
 
 # googtest
 cd gtest*
@@ -34,6 +35,7 @@ cd glog* && ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && ma
 cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd snappy* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
+cd libxml2* && ./configure -prefix=$prefix --without-python && make -j$n && make install && mv ../../include/libxml2/libxml ../../include/libxml && rm -rf ../../include/libxml2 && cd .. 
 # cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 
 cp -r eigen*/Eigen $prefix/include
