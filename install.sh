@@ -24,7 +24,9 @@ g++ -isystem ./include -I. -pthread -c ./src/gtest-all.cc
 g++ -isystem ./include -I. -pthread -c ./src/gtest_main.cc
 ar -rv libgtest.a gtest-all.o
 ar -rv libgtest_main.a gtest_main.o
+mkdir $prefix/lib
 cp libgtest* $prefix/lib
+mkdir $prefix/include
 cp -r ./include/gtest $prefix/include
 cd ..
 
