@@ -37,7 +37,7 @@ cd glog* && ./configure -prefix=$prefix --with-gflags=$prefix && make -j$n && ma
 cd zeromq* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd zlib* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 cd snappy* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
-cd libxml2* && ./configure -prefix=$prefix --without-python && make -j$n && make install && mv ../../include/libxml2/libxml ../../include/libxml && rm -rf ../../include/libxml2 && cd .. 
+cd libxml2* && ./configure -prefix=$prefix --without-python && make -j$n && make install && mv $prefix/include/libxml2/libxml $prefix/include/libxml && rm -rf $prefix/include/libxml2 && cd .. 
 # cd cityhash* && ./configure -prefix=$prefix && make -j$n && make install && cd ..
 
 cp -r eigen*/Eigen $prefix/include
